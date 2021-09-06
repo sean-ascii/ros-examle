@@ -5,8 +5,9 @@
 #include <std_msgs/String.h>
 
 void pubLineStrip(const ros::Publisher& pub) {
-  // clear the exist marker/markers in rviz with same topics of publisher
-  // DELETEALL will ignore ns and id. (TODO: should be tested)
+  // clear the exist marker/markers in rviz with same topics of publisher.
+  // according to viz object type, choose clear_maker type as visualization_msgs::Marker,
+  //    or visualization_msgs::MarkerArray.
   visualization_msgs::Marker clear_marker;
   clear_marker.action = visualization_msgs::Marker::DELETEALL;
   pub.publish(clear_marker);
